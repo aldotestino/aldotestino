@@ -1,19 +1,19 @@
 import { ReactNode } from 'react';
 
 interface TextWithIconProps {
-  sup: string
+  top: string
   bot?: string
   icon: any
 }
 
-function TextWithIcon({ sup, bot, icon: Icon }: TextWithIconProps) {
+function TextWithIcon({ top, bot, icon: Icon }: TextWithIconProps) {
   return (
     <div className="flex space-x-4 items-center">
       <div>
         <Icon className="w-8 h-8" />
       </div>
       <div className="text-lg">
-        <p>{sup}</p>
+        <p>{top}</p>
         <p>{bot}</p>
       </div>
     </div>
