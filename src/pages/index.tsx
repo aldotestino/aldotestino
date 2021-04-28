@@ -1,5 +1,6 @@
 import { AcademicCapIcon, BriefcaseIcon, MailIcon } from '@heroicons/react/outline';
 import React, { useState } from 'react';
+import { useNotify } from '../components/Notification';
 import SEO from '../components/SEO';
 import StackIcon from '../components/StackIcon';
 import { LinkWithIcon, TextWithIcon } from '../components/WithIcon';
@@ -45,23 +46,43 @@ const contacts = [
   }
 ];
 
+const URI = process.env.NODE_ENV === 'production' ? '/api/v1/contact' : '/api/v2/contact';
 
 export default function Home() {
 
   const [email, setEmail] = useState('');
 
-  function handleSubmit(e) {
+  const { notify } = useNotify();
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    if(email) {
-      console.log(email);
-      fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify({ email }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+    if(!email) {
+      return;
+    }
+    const res = await fetch(URI, {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(r => r.json());
+    
+    if(res.error) {
+      notify({
+        type: 'error',
+        title: 'Something went wrong!',
+        description: 'This email is already in use.',
+        duration: 5000
+      });
+    }else {
+      notify({
+        title: 'Success!',
+        description: 'You will receive an email as soon as possible...',
+        duration: 5000
       });
     }
+
+    setEmail('');
   }
 
   return (
@@ -74,10 +95,10 @@ export default function Home() {
             <div className="flex-grow sm:max-w-xl sm:pr-10">
               <header>
                 <h3 className=" text-3xl font-extralight">
-                 Aldo Testino
+                  Aldo Testino
                 </h3>
                 <h1 className="mt-2 text-6xl font-extrabold">
-                 I'm a <span className="block text-indigo-500">Developer.</span>
+                  I'm a <span className="block text-indigo-500">Developer.</span>
                 </h1>
               </header>
               <section className="mt-12 space-y-5">
@@ -86,12 +107,12 @@ export default function Home() {
               <section className="mt-12">
                 <form onSubmit={handleSubmit}>
                   <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="selena@gmail.com" className="transition focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none w-full bg-transparent py-2 px-4 text-lg placeholder-gray-500 shadow-md border-2 border-gray-500 rounded-lg"/>
-                    <button type="submit" className="text-gray-50 transition whitespace-nowrap py-2 px-4 text-lg bg-indigo-500 rounded-lg w-full sm:w-auto focus:outline-non hover:bg-indigo-600 focus:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-gray-900 shadow-md focus:ring-offset-2 focus:ring-indigo-400">
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="selena@gmail.com" className="transition focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none w-full bg-transparent py-2 px-4 text-lg placeholder-gray-500 shadow-md border-2 border-gray-500 rounded-lg"/>
+                    <button type="submit" className="text-gray-50 transition whitespace-nowrap py-2 px-4 text-lg bg-indigo-500 rounded-lg w-full sm:w-auto hover:bg-indigo-600 focus:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-gray-900 shadow-md focus:ring-offset-2 focus:ring-indigo-400">
                       Contact me
                     </button>
                   </div>
-                  <p className="mt-2">You will be contacted as soon as possible.</p>
+                  <p className="mt-2">We will not share your email.</p>
                 </form>
               </section>
             </div>
