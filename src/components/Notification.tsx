@@ -1,4 +1,4 @@
-import { CheckCircleIcon, ExclamationIcon, InformationCircleIcon, XCircleIcon, XIcon } from '@heroicons/react/outline';
+import { CheckCircleIcon, ExclamationCircleIcon, InformationCircleIcon, XCircleIcon, XIcon } from '@heroicons/react/outline';
 import { AnimatePresence, motion } from 'framer-motion';
 import { nanoid } from 'nanoid';
 import { createContext, useContext, useState, ReactNode, useCallback } from 'react';
@@ -59,7 +59,7 @@ function NotificationProvider({ children }: NotificationProviderProps) {
 
   return (
     <NotificationContext.Provider value={{ notify }}>
-      <div className="fixed px-5 w-full top-6 right-auto sm:w-auto left-auto sm:right-6 sm:px-0">
+      <div className="fixed px-5 w-full top-5 sm:w-auto sm:right-5 sm:px-0">
         <AnimatePresence>
           {notifications.map(n => <Notification key={n.id} {...n} />)}
         </AnimatePresence>
@@ -72,7 +72,7 @@ function NotificationProvider({ children }: NotificationProviderProps) {
 const icons = {
   success: <CheckCircleIcon className="w-6 h-6 text-green-400" />,
   error: <XCircleIcon className="w-6 h-6 text-red-400"/>,
-  warning: <ExclamationIcon className="w-6 h-6 text-yellow-400" />,
+  warning: <ExclamationCircleIcon className="w-6 h-6 text-yellow-400" />,
   info: <InformationCircleIcon className="w-6 h-6 text-blue-400" />
 };
 
@@ -80,7 +80,7 @@ function Notification({ onClose, title, description, type = 'success' }: Notific
 
   return (
     <motion.div 
-      /* initial={{ opacity: 0, scale: 0.8, x: 300 }} // animate from
+      initial={{ opacity: 0, scale: 0.8, x: 300 }} // animate from
       animate={{ opacity: 1, scale: 1, x: 0 }} // animate to
       exit={{ opacity: 0, scale: 0.8, x: 300 }} // animate exit
       // describe transition behavior
@@ -88,11 +88,7 @@ function Notification({ onClose, title, description, type = 'success' }: Notific
         type: 'spring',
         stiffness: 500,
         damping: 40,
-      }} */
-      initial={{ opacity: 0, x: 500 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 500 }}
-      transition={{ duration: 0.5 }}
+      }} 
       // auto animates the element when it's position changes
       layout
       className="bg-gray-50 w-full sm:max-w-xs mb-4 text-gray-900 shadow-md flex py-2 px-4 rounded-lg space-x-4">

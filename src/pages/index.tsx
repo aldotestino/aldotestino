@@ -59,6 +59,7 @@ const URI = process.env.NODE_ENV === 'production' ? '/api/v1/contact' : '/api/v2
 export default function Home() {
 
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const { notify } = useNotify();
 
@@ -67,6 +68,7 @@ export default function Home() {
     if(!email) {
       return;
     }
+    setLoading(true);
     const res = await fetch(URI, {
       method: 'POST',
       body: JSON.stringify({ email }),
@@ -90,6 +92,7 @@ export default function Home() {
       });
     }
 
+    setLoading(false);
     setEmail('');
   }
 
@@ -101,28 +104,36 @@ export default function Home() {
         <div className="py-20 bg-gray-900 text-gray-50">
           <div className="max-w-6xl mx-auto px-5 sm:px-10 sm:flex sm:justify-between">
             <div className="flex-grow sm:max-w-xl sm:pr-10">
-              <header>
+              <div>
                 <h3 className=" text-3xl font-extralight">
                   Aldo Testino
                 </h3>
                 <h1 className="mt-2 text-6xl font-extrabold">
                   I'm a <span className="block text-indigo-500">Developer.</span>
                 </h1>
-              </header>
-              <section className="mt-12 space-y-5">
+              </div>
+              <div className="mt-12 space-y-5">
                 {jobs.map((j, i) => <TextWithIcon key={i} {...j} />)}
-              </section>
-              <section className="mt-12">
+              </div>
+              <div className="mt-12">
                 <form onSubmit={handleSubmit}>
                   <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                     <input value={email} type="email" required onChange={(e) => setEmail(e.target.value)} placeholder="selena@gmail.com" className="transition focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none w-full bg-transparent py-2 px-4 text-lg placeholder-gray-500 shadow-md border-2 border-gray-500 rounded-lg"/>
-                    <button type="submit" className="text-gray-50 transition whitespace-nowrap py-2 px-4 text-lg bg-indigo-500 rounded-lg w-full sm:w-auto hover:bg-indigo-600 focus:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-gray-900 shadow-md focus:ring-offset-2 focus:ring-indigo-400">
-                      Contact me
+                    <button disabled={loading || email === ''} type="submit" className="text-gray-50 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 inline-flex items-center justify-center space-x-2 transition whitespace-nowrap py-2 px-4 text-lg bg-indigo-500 rounded-lg w-auto hover:bg-indigo-600 focus:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-gray-900 shadow-md focus:ring-offset-2 focus:ring-indigo-400">
+                      {loading && 
+                        <div>
+                          <svg className="spinner" viewBox="0 0 50 50">
+                            <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
+                          </svg>
+                        </div>}
+                      <span>
+                        {!loading ? 'Contact me' : 'Submitting'}
+                      </span>
                     </button>
                   </div>
                   <p className="mt-2">We will not share your email.</p>
                 </form>
-              </section>
+              </div>
             </div>
             <div className="hidden sm:block flex-shrink-0">
               <img src="/homeimage.svg" alt="home-image"/>
@@ -131,10 +142,10 @@ export default function Home() {
         </div>
 
         <div className="mt-12 max-w-6xl mx-auto px-5 sm:px-10">
-          <header className="text-center">
+          <div className="text-center">
             <h4 className="uppercase text-lg font-medium text-indigo-500 tracking-wider">Stack</h4>
             <h3 className="text-3xl font-semibold mt-2">Technologies that i like to use.</h3>
-          </header>
+          </div>
           <section className="mt-10 grid grid-rows-3 gap-4 sm:grid-cols-2 sm:grid-rows-3 md:gap-8 lg:grid-cols-3 lg:grid-rows-2 lg:gap-16">
             {stack.map((s, i) => 
               <div key={i} className={clsx(i > 2 && 'hidden sm:block')}>
@@ -144,10 +155,10 @@ export default function Home() {
         </div>
 
         <div className="mt-12 pb-20 max-w-6xl mx-auto px-5 md:px-10">
-          <header className="text-center">
+          <div className="text-center">
             <h4 className="uppercase text-lg font-medium text-indigo-500 tracking-wider">Contacts</h4>
             <h3 className="text-3xl font-semibold mt-2">Stay in touch.</h3>
-          </header>
+          </div>
           <section className="mt-10 flex flex-col space-y-5 md:flex-row md:space-y-0 md:justify-between">
             {contacts.map((c, i) => <LinkWithIcon key={i} {...c} />)}
           </section>
