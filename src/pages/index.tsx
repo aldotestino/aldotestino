@@ -105,9 +105,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-5 sm:px-10 sm:flex sm:justify-between">
             <div className="flex-grow sm:max-w-xl sm:pr-10">
               <div>
-                <h3 className=" text-3xl font-extralight">
-                  Aldo Testino
-                </h3>
+                <h3 className="text-3xl font-extralight">Aldo Testino</h3>
                 <h1 className="mt-2 text-6xl font-extrabold">
                   I'm a <span className="block text-indigo-500">Developer.</span>
                 </h1>
