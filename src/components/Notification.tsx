@@ -47,7 +47,7 @@ function useNotifications() {
 
     setNotifications(notifications => [newNotification, ...notifications]);
 
-    setTimeout(removeNotification, options.duration);
+    setTimeout(removeNotification, options.duration || 3000);
   }, []);
 
   return { notify, notifications };
@@ -59,7 +59,7 @@ function NotificationProvider({ children }: NotificationProviderProps) {
 
   return (
     <NotificationContext.Provider value={{ notify }}>
-      <div className="fixed px-5 w-full top-5 sm:w-auto sm:right-5 sm:px-0">
+      <div className="fixed px-5 w-full top-5 sm:w-auto sm:right-5 sm:px-0 z-50">
         <AnimatePresence>
           {notifications.map(n => <Notification key={n.id} {...n} />)}
         </AnimatePresence>
@@ -91,7 +91,7 @@ function Notification({ onClose, title, description, type = 'success' }: Notific
       }} 
       // auto animates the element when it's position changes
       layout
-      className="bg-gray-50 w-full sm:max-w-xs mb-4 text-gray-900 shadow-md flex py-2 px-4 rounded-lg space-x-4">
+      className="bg-gray-100 w-full sm:max-w-xs mb-4 text-gray-900 shadow-md flex py-2 px-4 rounded-lg space-x-4">
       <div>
         {icons[type]}
       </div>
