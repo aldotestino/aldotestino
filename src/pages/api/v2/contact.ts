@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { emailSchema } from '../../../utils/validators';
 
 const prisma = new PrismaClient();
 
@@ -15,24 +16,36 @@ export default async function(req: Request, res: NextApiResponse) {
 
     if(email) {
       try {
+        if(!emailSchema.check(email)) {
+          res.status(400).json({ error: 'This is not a valid email.' });
+          return;
+        }
 
-        await prisma.$connect();
+        // manually checking for existing customer as `@unique` with mongo doesn't work in prisma yet
+        // currently `prisma^2.22.0`
+        const customerExists = await prisma.customer.findUnique({
+          where: {
+            email
+          }
+        });
+
+        if(customerExists) {
+          res.status(400).json({ error: 'This email is already in use.' });
+          return;
+        }
 
         const customer = await prisma.customer.create({
           data: {
             email
           }
         });
-
         res.status(200).json(customer);
-
       } catch(e) {
-        res.status(500).json({ error: e.message });
-      } finally {
-        await prisma.$disconnect();
+        console.error(e);
+        res.status(500).json({ error: 'Somethig went wrong.' });
       }
     } else {
-      res.status(400).json({ error: 'Email is not defined' });
+      res.status(400).json({ error: 'Email is not defined.' });
     }
   }
 }
