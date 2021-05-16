@@ -25,7 +25,7 @@ const handler = async (req: Request, res: NextApiResponse) => {
         
         const customer = await new Customer({ email }).save();
         
-        updateNotionDB({ email, createdAt: new Date(customer['createdAt']) });
+        await updateNotionDB({ email, createdAt: new Date(customer['createdAt']) });
 
         res.status(200).json(customer);
       }catch (e) {

@@ -42,7 +42,7 @@ export default async function(req: Request, res: NextApiResponse) {
           }
         });
 
-        updateNotionDB({ email: customer.email, createdAt: customer.createdAt });
+        await updateNotionDB({ email: customer.email, createdAt: customer.createdAt });
 
         res.status(200).json(customer);
       } catch(e) {
