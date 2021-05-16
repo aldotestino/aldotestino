@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import connectDB from '../../../middleware/mongo';
 import Customer from '../../../models/Customer';
+import { updateNotionDB } from '../../../utils/notion';
 import { emailSchema } from '../../../utils/validators';
 
 interface Request extends NextApiRequest {
@@ -23,6 +24,9 @@ const handler = async (req: Request, res: NextApiResponse) => {
         }
         
         const customer = await new Customer({ email }).save();
+        
+        updateNotionDB({ email, createdAt: new Date(customer['createdAt']) });
+
         res.status(200).json(customer);
       }catch (e) {
         if(e.message.includes(DUPLICATE_ERROR_CODE)) {

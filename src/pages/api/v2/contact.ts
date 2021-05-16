@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client';
+import fetch from 'node-fetch';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { emailSchema } from '../../../utils/validators';
+import { updateNotionDB } from '../../../utils/notion';
 
 const prisma = new PrismaClient();
 
@@ -39,6 +41,9 @@ export default async function(req: Request, res: NextApiResponse) {
             email
           }
         });
+
+        updateNotionDB({ email: customer.email, createdAt: customer.createdAt });
+
         res.status(200).json(customer);
       } catch(e) {
         console.error(e);
