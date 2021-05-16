@@ -1,3 +1,4 @@
+import { RecordWithTtl } from 'dns';
 import fetch from 'node-fetch';
 
 interface UpdateNotionDBArgs {
@@ -5,8 +6,8 @@ interface UpdateNotionDBArgs {
   createdAt: Date
 }
 
-export async function updateNotionDB({ email, createdAt }: UpdateNotionDBArgs): Promise<void> {
-  fetch('https://api.notion.com/v1/pages', {
+export async function updateNotionDB({ email, createdAt }: UpdateNotionDBArgs): Promise<Record<string, unknown>> {
+  const notion = await fetch('https://api.notion.com/v1/pages', {
     method: 'POST',
     body: JSON.stringify({
       parent: { database_id: process.env.NOTION_DATABASE_URL },
@@ -33,4 +34,5 @@ export async function updateNotionDB({ email, createdAt }: UpdateNotionDBArgs): 
       'Notion-Version': '2021-05-13'
     }
   });
+  return notion.json();
 }

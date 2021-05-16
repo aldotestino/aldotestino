@@ -42,7 +42,8 @@ export default async function(req: Request, res: NextApiResponse) {
           }
         });
 
-        await updateNotionDB({ email: customer.email, createdAt: customer.createdAt });
+        const notion = await updateNotionDB({ email: customer.email, createdAt: customer.createdAt });
+        console.log(notion);
 
         res.status(200).json(customer);
       } catch(e) {
