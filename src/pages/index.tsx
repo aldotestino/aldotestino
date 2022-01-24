@@ -101,8 +101,8 @@ export default function Home() {
     <>
       <SEO />
 
-      <div className="min-h-screen overflow-hidden bg-gray-50 text-gray-900">
-        <div className="py-20 bg-gray-900 text-gray-50">
+      <div className="overflow-hidden bg-gray-50 text-gray-900">
+        <div className="min-h-screen py-20 bg-gray-900 text-gray-50">
           <div className="max-w-6xl mx-auto px-5 sm:px-10 sm:flex sm:justify-between">
             <div className="flex-grow sm:max-w-xl sm:pr-10">
               <div>
@@ -117,7 +117,7 @@ export default function Home() {
               <div className="mt-12">
                 <form onSubmit={handleSubmit}>
                   <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="selena@gmail.com" className="transition focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none w-full bg-transparent py-2 px-4 text-lg placeholder-gray-500 shadow-md border-2 border-gray-500 rounded-lg"/>
+                    <input value={email} inputMode='email' onChange={(e) => setEmail(e.target.value)} placeholder="selena@gmail.com" className="transition focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none w-full bg-transparent py-2 px-4 text-lg placeholder-gray-500 shadow-md border-2 border-gray-500 rounded-lg"/>
                     <button disabled={loading || email === ''} type="submit" className="text-gray-50 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 inline-flex items-center justify-center space-x-2 transition whitespace-nowrap py-2 px-4 text-lg bg-indigo-500 rounded-lg w-auto hover:bg-indigo-600 focus:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-gray-900 shadow-md focus:ring-offset-2 focus:ring-indigo-400">
                       {loading && 
                         <div>
