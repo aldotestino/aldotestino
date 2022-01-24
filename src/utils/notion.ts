@@ -1,4 +1,3 @@
-import { RecordWithTtl } from 'dns';
 import fetch from 'node-fetch';
 
 interface UpdateNotionDBArgs {

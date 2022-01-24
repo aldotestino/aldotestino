@@ -1,8 +1,7 @@
-import { PrismaClient } from '@prisma/client';
-import fetch from 'node-fetch';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { emailSchema } from '../../../utils/validators';
 import { updateNotionDB } from '../../../utils/notion';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
