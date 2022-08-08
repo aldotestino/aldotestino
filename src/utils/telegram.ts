@@ -7,8 +7,6 @@ interface TelegramNotification {
 
 const { BOT_API_KEY, CHANNEL_ID } = process.env;
 
-console.log(BOT_API_KEY, CHANNEL_ID);
-
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_API_KEY}/sendMessage?chat_id=${CHANNEL_ID}&text=`;
 
 export async function sendTelegramNotification({ email, notion_url }: TelegramNotification) {

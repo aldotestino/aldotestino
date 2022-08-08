@@ -1,5 +1,5 @@
 import { withTRPC } from '@trpc/next';
-import { AppProps } from 'next/dist/next-server/lib/router/router';
+import { AppProps } from 'next/app';
 import NotificationProvider from '../components/Notification';
 import '../styles/globals.css';
 import { AppRouter } from './api/trpc/[trpc]';

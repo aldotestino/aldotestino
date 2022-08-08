@@ -24,7 +24,6 @@ function ContactForm() {
 
     mutate(input, {
       onSuccess: (res) => {
-        console.log(res);
         notify({
           title: 'Success!',
           description: res.data.message,

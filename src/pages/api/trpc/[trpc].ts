@@ -14,7 +14,6 @@ export const appRouter = trpc
     resolve: async ({ input }) => {
       const res = await updateNotionDB(input);
       console.log(res);
-
       if (res.object === 'error') {
         throw new trpc.TRPCError({
           code: 'BAD_REQUEST',
