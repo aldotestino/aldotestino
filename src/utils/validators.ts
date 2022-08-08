@@ -1,2 +1,7 @@
 import * as z from 'zod';
-export const emailSchema = z.string().email();
+
+const emailSchema = z.string().email();
+
+const zValidateEmail = (email: string) => emailSchema.safeParse(email).success;
+
+export const getErrorMessage = (email: string) => zValidateEmail(email) || email === '' ? '' : 'Insert a valid eamil';

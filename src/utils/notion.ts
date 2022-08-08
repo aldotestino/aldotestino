@@ -1,11 +1,11 @@
 import fetch from 'node-fetch';
 
 interface UpdateNotionDBArgs {
-  email: string,
-  createdAt: Date
+  email?: string,
+  message?: string
 }
 
-export async function updateNotionDB({ email, createdAt }: UpdateNotionDBArgs): Promise<Record<string, unknown>> {
+export async function updateNotionDB({ email, message }: UpdateNotionDBArgs): Promise<Record<string, unknown>> {
   const notion = await fetch('https://api.notion.com/v1/pages', {
     method: 'POST',
     body: JSON.stringify({
@@ -20,9 +20,18 @@ export async function updateNotionDB({ email, createdAt }: UpdateNotionDBArgs): 
             }
           ]
         },
+        message: {
+          rich_text: [
+            {
+              text: {
+                content: message
+              }
+            }
+          ]
+        },
         createdAt: {
           date: {
-            start: createdAt.toISOString()
+            start: new Date().toISOString()
           }
         }
       }

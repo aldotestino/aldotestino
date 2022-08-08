@@ -66,6 +66,8 @@ function NotificationProvider({ children }: NotificationProviderProps) {
   return (
     <NotificationContext.Provider value={{ notify }}>
       <div className="fixed sm:flex sm:flex-col sm:items-end px-5 w-full top-5 sm:w-auto sm:right-5 sm:px-0 z-50">
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/*@ts-ignore */}
         <AnimatePresence>      
           {notifications.map(n => <Notification key={n.id} {...n} />)}
         </AnimatePresence>
