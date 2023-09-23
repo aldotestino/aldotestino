@@ -1,0 +1,31 @@
+import ContactForm from '../components/ContactForm';
+import { useSectionInView } from '../lib/hooks';
+import { motion } from 'framer-motion';
+
+function Contact() {
+
+  const { ref } = useSectionInView('Contact');
+
+  return (
+    <motion.section
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+      ref={ref} id="contact" className="max-w-3xl flex flex-col items-center">
+      <h2 className="text-3xl font-medium pb-6">Contact Me</h2>
+      <p className="pb-4">Please contact me at <a className="underline" href="mailto:aldo.testino@libero.it">aldo.testino@libero.it</a> or through this form.</p>
+      <ContactForm />
+    </motion.section>
+  );
+}
+
+export default Contact;
