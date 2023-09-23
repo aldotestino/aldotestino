@@ -50,7 +50,7 @@ function ContactForm() {
       <div className="flex text-lg text-gray-50 flex-col gap-4 items-end">
         <input value={input.email} required type="email" onChange={(e) => setInput(s => ({ ...s, email: e.target.value }))} placeholder="Your email"
           className="transition focus:ring-violet-400 focus:border-violet-400 focus:outline-none w-full bg-transparent py-2 px-4 text-lg placeholder-gray-500 shadow-md border-2 border-gray-700 rounded-lg"/>
-        <textarea value={input.message} required autoFocus onChange={(e) => setInput(s => ({ ...s, message: e.target.value }))} name="message" placeholder="Send me a message"
+        <textarea value={input.message} required onChange={(e) => setInput(s => ({ ...s, message: e.target.value }))} name="message" placeholder="Send me a message"
           className="h-32 transition focus:ring-violet-400 focus:border-violet-400 focus:outline-none w-full bg-transparent py-2 px-4 text-lg placeholder-gray-500 shadow-md border-2 border-gray-700 rounded-lg"/>
         <button 
           type="submit" 
