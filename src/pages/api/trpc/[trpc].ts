@@ -12,7 +12,8 @@ export const appRouter = trpc
       message: z.string()
     }).required(),
     resolve: async ({ input }) => {
-      const res = await updateNotionDB(input);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const res: any = await updateNotionDB(input);
       console.log(res);
       if (res.object === 'error') {
         throw new trpc.TRPCError({
