@@ -37,7 +37,7 @@ function Skills() {
             viewport={{
               once: true
             }}
-            className="px-5 py-3 bg-gray-700 rounded-md">
+            className="px-5 py-3 bg-gray-700 rounded-lg shadow-md">
             {s}
           </motion.li>
         ))}

@@ -21,8 +21,8 @@ function Hero() {
   return (
     <section ref={ref} id="home" className="flex pt-20 sm:pt-40 flex-col gap-8 items-center max-w-3xl relative">
 
-      <div className="absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem]  bg-[#946263]"></div>
-      <div className="absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-[#676394]"></div>
+      <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-[#946263]"></div>
+      <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-[#676394]"></div>
         
       <div className="relative">
         {/* <motion.img
@@ -72,7 +72,7 @@ function Hero() {
         transition={{
           delay: 0.1,
         }}
-        className="flex z-[999] gap-4 text-gray-900">
+        className="flex flex-col items-center sm:flex-row z-[999] gap-4 text-gray-900">
 
         <Link href="#contact" onClick={() => {
           setActiveSection('Contact');
@@ -81,7 +81,9 @@ function Hero() {
           <span>Contact me!</span>
           <ArrowRightIcon className="w-6 h-6" />
         </Link>
-        {links.map(l => <LinkWithIcon key={l.link} {...l} />)}
+        <div className="flex gap-4">
+          {links.map(l => <LinkWithIcon key={l.link} {...l} />)}
+        </div>
       </motion.div>
 
     </section>

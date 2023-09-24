@@ -18,7 +18,7 @@ const fadeInAnimationVariantsLeft = {
     x: 0,
     opacity: 1,
     transition: {
-      delay: 0.2 * index,
+      delay: 0.2 * index
     },
   }),
 };
@@ -32,7 +32,7 @@ const fadeInAnimationVariantsRight = {
     x: 0,
     opacity: 1,
     transition: {
-      delay: 0.2 * index,
+      delay: 0.2 * index
     },
   }),
 };
@@ -66,8 +66,7 @@ function ExperienceCard({ title, description, icon: Icon, year, index }: Experie
         viewport={{
           once: true
         }}
-
-        className="bg-gray-700 p-4 rounded-md max-w-lg">
+        className="bg-gray-700 p-4 rounded-lg max-w-lg shadow-md">
         <h3 className="font-bold text-lg">{title}</h3>
         <p>{description}</p>
         <p className="pt-3 text-gray-400 md:hidden transition">{year}</p>
