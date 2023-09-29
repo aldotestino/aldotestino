@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, DocumentArrowDownIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import LinkWithIcon from './LinkWithIcon';
 import { links, statuses } from '../lib/data';
@@ -77,10 +77,16 @@ function Hero() {
         <Link href="#contact" onClick={() => {
           setActiveSection('Contact');
           setTimeOfLastClick(Date.now());
-        }} className="px-6 py-3 cursor-pointer text-xl bg-white rounded-full flex gap-2 items-center transition hover:bg-gray-200 hover:scale-105">
-          <span>Contact me!</span>
+        }} className="px-6 py-3 text-gray-50 cursor-pointer text-xl bg-violet-400 rounded-full flex gap-2 items-center transition hover:bg-violet-500 hover:scale-105">
+          <span>Contact me</span>
           <ArrowRightIcon className="w-6 h-6" />
         </Link>
+
+        <Link href="/resume.pdf" target="_blank" className="px-6 py-3 cursor-pointer text-xl bg-white rounded-full flex gap-2 items-center transition hover:bg-gray-200 hover:scale-105">
+          <span>Download CV</span>
+          <DocumentArrowDownIcon className="w-6 h-6" />
+        </Link>
+
         <div className="flex gap-4">
           {links.map(l => <LinkWithIcon key={l.link} {...l} />)}
         </div>
