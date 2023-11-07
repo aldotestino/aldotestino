@@ -1,5 +1,4 @@
 import { skills } from '../lib/data';
-import { useSectionInView } from '../lib/hooks';
 import { motion } from 'framer-motion';
 
 const fadeInAnimationVariants = {
@@ -18,11 +17,9 @@ const fadeInAnimationVariants = {
 
 function Skills() {
 
-  const { ref } = useSectionInView('Skills');
-
   return (
     <section
-      ref={ref}
+      // ref={ref}
       id="skills" 
       className="max-w-3xl flex flex-col items-center">
       <h2 className="text-3xl font-medium pb-6">My Skills</h2>

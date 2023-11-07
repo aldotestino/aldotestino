@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import LinkWithIcon from './LinkWithIcon';
 import { links, statuses } from '../lib/data';
 import Link from 'next/link';
-import { useSectionInView } from '../lib/hooks';
-import { useActiveSectionContext } from '../context/active-section-context';
 import { useEffect, useState } from 'react';
 
 function Hero() {
@@ -15,11 +13,9 @@ function Hero() {
     setRandomStatus(statuses[Math.floor(Math.random() * statuses.length)]);
   }, []);
 
-  const { ref } = useSectionInView('Home', 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-
   return (
-    <section ref={ref} id="home" className="flex pt-20 sm:pt-40 flex-col gap-8 items-center max-w-3xl relative">
+    <section 
+      id="home" className="flex pt-20 sm:pt-40 flex-col gap-8 items-center max-w-3xl relative">
 
       <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-[#946263]"></div>
       <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-[#676394]"></div>
@@ -74,10 +70,7 @@ function Hero() {
         }}
         className="flex flex-col items-center sm:flex-row z-[999] gap-4 text-gray-900">
 
-        <Link href="#contact" onClick={() => {
-          setActiveSection('Contact');
-          setTimeOfLastClick(Date.now());
-        }} className="px-6 py-3 text-gray-50 cursor-pointer text-xl bg-violet-400 rounded-full flex gap-2 items-center transition hover:bg-violet-500 hover:scale-105">
+        <Link href="#contact" className="px-6 py-3 text-gray-50 cursor-pointer text-xl bg-violet-400 rounded-full flex gap-2 items-center transition hover:bg-violet-500 hover:scale-105">
           <span>Contact me</span>
           <ArrowRightIcon className="w-6 h-6" />
         </Link>

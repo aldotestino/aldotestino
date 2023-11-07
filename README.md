@@ -10,4 +10,4 @@
 
 ## Contacts
 
-[Twitter](https://twitter.com/aldotestino4) · [Github](https://github.com/aldotestino) · aldo.testino@libero.it
+[Linkedin](https://www.linkedin.com/in/aldo-testino-56486a244) · [Github](https://github.com/aldotestino) · aldo.testino@libero.it
