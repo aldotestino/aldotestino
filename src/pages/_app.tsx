@@ -3,7 +3,6 @@ import { AppProps } from 'next/app';
 import NotificationProvider from '../context/notification-context';
 import '../styles/globals.css';
 import { AppRouter } from './api/trpc/[trpc]';
-// import ActiveSectionContextProvider from '../context/active-section-context';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

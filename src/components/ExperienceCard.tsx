@@ -51,7 +51,7 @@ function ExperienceCard({ title, description, icon: Icon, year, index }: Experie
           once: true
         }}
         className="flex gap-2">
-        <p className="text-gray-400 hidden md:block transition">{year}</p>
+        <p className="text-gray-300 hidden md:block transition">{year}</p>
         <div className="flex flex-col items-center gap-4">
           <Icon className="w-12 h-12"/>
           <div className="h-full w-1 bg-gray-50 rounded-full bg-opacity-20"></div>
@@ -67,9 +67,9 @@ function ExperienceCard({ title, description, icon: Icon, year, index }: Experie
           once: true
         }}
         className="bg-gray-700 p-4 rounded-lg max-w-lg shadow-md">
-        <h3 className="font-bold text-lg">{title}</h3>
-        <p>{description}</p>
-        <p className="pt-3 text-gray-400 md:hidden transition">{year}</p>
+        <h3 className="font-semibold text-2xl">{title}</h3>
+        <p className="text-gray-300 mt-2">{description}</p>
+        <p className="pt-3 text-gray-300 md:hidden transition">{year}</p>
       </motion.div>
 
     </div>

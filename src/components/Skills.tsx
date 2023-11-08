@@ -19,7 +19,6 @@ function Skills() {
 
   return (
     <section
-      // ref={ref}
       id="skills" 
       className="max-w-3xl flex flex-col items-center">
       <h2 className="text-3xl font-medium pb-6">My Skills</h2>

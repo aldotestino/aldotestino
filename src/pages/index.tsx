@@ -6,6 +6,7 @@ import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
+import Projects from '../components/Projects';
 
 export default function Index() {
 
@@ -13,7 +14,7 @@ export default function Index() {
     <>
       <SEO />
 
-      <main className="min-h-screen pb-10 px-4 sm:px-0 flex gap-32 flex-col items-center">
+      <main className="min-h-screen pb-10 px-4 flex gap-32 flex-col items-center">
         <Hero />
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -21,6 +22,7 @@ export default function Index() {
           transition={{ delay: 0.125 }} 
           className="h-16 w-1 bg-gray-50 rounded-full bg-opacity-20"></motion.div>
         <About />
+        <Projects />
         <Skills />
         <Experience />
         <Contact />
