@@ -54,7 +54,7 @@ export const experiences = [{
   title: 'Politecnico di Bari',
   description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.',
   icon: AcademicCapIcon,
-  year: '2022 - 2023'
+  year: `2022 - ${(new Date()).getFullYear()}`
 }] as const;
 
 export const skills = [
