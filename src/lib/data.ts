@@ -49,7 +49,7 @@ export const experiences = [{
   title: 'Leaf s.r.l.',
   description: 'I work as a full stack developer using tools such as Express, React, MongoDB and Docker',
   icon: BriefcaseIcon,
-  year: '2022 - 2023'
+  year: '2022 - 2024'
 }, {
   title: 'Politecnico di Bari',
   description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.',
