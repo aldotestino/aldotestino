@@ -33,7 +33,7 @@ function ProjectCard({ title, description, tags, image, deploy, github }: (typeo
         <div className='flex flex-col justify-between h-full'>
           <div className="flex flex-col gap-2">
             <h3 className="text-2xl font-semibold">{title}</h3>
-            <p className="">{description}</p>
+            <p className="text-muted-foreground">{description}</p>
             <div className='flex gap-2'>
               {deploy && 
                 <Link href={deploy} target="_blank" className={cn(badgeVariants(), 'text-sm space-x-1')}>

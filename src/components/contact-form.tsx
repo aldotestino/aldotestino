@@ -33,6 +33,7 @@ function ContactForm() {
     sendMessage(values)
       .finally(() => {
         setIsLoading(false);
+        form.reset();
       });
   }
 
