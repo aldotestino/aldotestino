@@ -74,19 +74,13 @@ function Hero() {
           <FileDown className="w-6 h-6" />
         </Link>
 
-        {/* <Link href="#contact" className="px-6 py-3 text-gray-50 cursor-pointer text-xl bg-violet-400 rounded-full flex gap-2 items-center transition hover:bg-violet-500 hover:scale-105">
-          <span>Contact me</span>
-          <ArrowRight className="w-6 h-6" />
-        </Link>
-
-        <Link href="/resume.pdf" target="_blank" className="px-6 py-3 cursor-pointer text-xl bg-white rounded-full flex gap-2 items-center transition hover:bg-gray-200 hover:scale-105">
-          <span>Download CV</span>
-          <Download className="w-6 h-6" />
-        </Link> */}
-
-        {/* <div className="flex gap-4">
-          {links.map(l => <LinkWithIcon key={l.link} {...l} />)}
-        </div> */}
+        <div className="flex gap-4">
+          {links.map((l, i) => 
+            <Link key={i} href={l.link} target="_blank" className={cn(buttonVariants({ variant: 'secondary', size: 'lg' }), 'hover:scale-105 transition-all rounded-full')}>
+              <l.icon className="w-6 h-6" />
+            </Link>
+          )}
+        </div>
       </motion.div>
 
     </section>
