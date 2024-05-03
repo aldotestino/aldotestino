@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { ArrowRight } from 'lucide-react';
 import { sendMessage } from '@/server/actions';
 import { useState } from 'react';
+import { useToast } from '@/components/ui/use-toast';
  
 const formSchema = z.object({
   email: z.string().email(),
@@ -19,6 +20,7 @@ type FormSchema = z.infer<typeof formSchema>;
 function ContactForm() {
 
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -31,6 +33,20 @@ function ContactForm() {
   function onSubmit(values: FormSchema) {
     setIsLoading(true);
     sendMessage(values)
+      .then(res => {
+        console.log(res);
+        toast({
+          title: 'Success',
+          description: res.message
+        });
+      })
+      .catch(err => {
+        toast({
+          title: 'Error',
+          description: err.message,
+          variant: 'destructive'
+        });
+      })
       .finally(() => {
         setIsLoading(false);
         form.reset();

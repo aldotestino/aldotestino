@@ -29,20 +29,20 @@ function ProjectCard({ title, description, tags, image, deploy, github }: (typeo
       }}
       className="group"
     >
-      <div className="overflow-hidden h-72 p-4 sm:pr-80 rounded-lg max-w-2xl w-full border shadow-md relative">
+      <div className="overflow-hidden h-80 p-4 sm:pr-80 rounded-lg max-w-2xl w-full border shadow-md relative">
         <div className='flex flex-col justify-between h-full'>
           <div className="flex flex-col gap-2">
             <h3 className="text-2xl font-semibold">{title}</h3>
             <p className="text-muted-foreground">{description}</p>
             <div className='flex gap-2'>
               {deploy && 
-                <Link href={deploy} target="_blank" className={cn(badgeVariants(), 'text-sm space-x-1')}>
+                <Link href={deploy} target="_blank" className={cn(badgeVariants(), 'text-md space-x-1')}>
                   <span>Go to app</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
               }
               {github && 
-                <Link href={github} target="_blank" className={cn(badgeVariants({ variant: 'secondary' }), 'text-sm space-x-1')}>
+                <Link href={github} target="_blank" className={cn(badgeVariants({ variant: 'secondary' }), 'text-md space-x-1')}>
                   <span>Repository</span>
                   <FaGithub className="w-4 h-4" />
                 </Link>
@@ -51,7 +51,7 @@ function ProjectCard({ title, description, tags, image, deploy, github }: (typeo
           </div>
           <div className="flex flex-wrap gap-1">
             {tags.map((tag, i) => (
-              <Badge variant="outline" className="tracking-wide uppercase" key={i}>{tag}</Badge>
+              <Badge variant="secondary" className="tracking-wide uppercase" key={i}>{tag}</Badge>
             ))}
           </div>
         </div>

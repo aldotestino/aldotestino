@@ -5,6 +5,7 @@ import Footer from '@/components/footer';
 import Hero from '@/components/hero';
 import Projects from '@/components/projects';
 import Skills from '@/components/skills';
+import { Toaster } from '@/components/ui/toaster';
 import VerticalSeparator from '@/components/vertical-separator';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <Experience />
       <Contact />
       <Footer />
+      <Toaster />
     </div>
   );
 }
