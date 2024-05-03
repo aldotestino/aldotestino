@@ -34,7 +34,7 @@ function Skills() {
             viewport={{
               once: true
             }}>
-            <Badge variant="secondary" className="text-lg px-4 py-2">{s}</Badge>
+            <Badge variant="outline" className="text-lg px-4 py-2 bg-card">{s}</Badge>
           </motion.li>
         ))}
       </ul>

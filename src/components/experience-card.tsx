@@ -50,10 +50,10 @@ function ExperienceCard({ title, description, icon: Icon, year, index }: Experie
           once: true
         }}
         className="flex gap-2">
-        <p className="hidden md:block text-muted-foreground">{year}</p>
+        <p className="hidden md:block text-card-foreground">{year}</p>
         <div className="flex flex-col items-center gap-4">
           <Icon className="w-12 h-12"/>
-          <div className="h-full w-1 rounded-full bg-secondary"></div>
+          <div className="h-full w-1 rounded-full bg-secondary/20"></div>
         </div>
       </motion.div>  
       
@@ -65,10 +65,10 @@ function ExperienceCard({ title, description, icon: Icon, year, index }: Experie
         viewport={{
           once: true
         }}
-        className="p-4 rounded-lg max-w-lg border shadow-md">
+        className="p-4 bg-card rounded-lg max-w-lg border shadow-md">
         <h3 className="font-semibold text-2xl">{title}</h3>
-        <p className="mt-2 text-muted-foreground">{description}</p>
-        <p className="pt-3 md:hidden text-muted-foreground">{year}</p>
+        <p className="mt-2 text-card-foreground">{description}</p>
+        <p className="pt-3 md:hidden text-card-foreground">{year}</p>
       </motion.div>
 
     </div>
