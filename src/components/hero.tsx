@@ -64,12 +64,12 @@ function Hero() {
         }}
         className="flex flex-col items-center sm:flex-row z-[999] gap-4">
 
-        <Link href="#contant" className={cn(buttonVariants({ size: 'lg' }), 'text-lg space-x-1 hover:scale-105 transition-all rounded-full')}>
+        <Link href="#contant" className={cn(buttonVariants({ size: 'lg' }), 'text-lg space-x-2 hover:scale-105 transition-all rounded-full')}>
           <span>Contact me</span>
           <ArrowRight className="w-6 h-6" />
         </Link>
 
-        <Link href="/resume.pdf" target="_blank" className={cn(buttonVariants({ variant: 'secondary', size: 'lg' }), 'text-lg space-x-1 hover:scale-105 transition-all rounded-full')}>
+        <Link href="/resume.pdf" target="_blank" className={cn(buttonVariants({ variant: 'secondary', size: 'lg' }), 'text-lg space-x-2 hover:scale-105 transition-all rounded-full')}>
           <span>Download CV</span>
           <FileDown className="w-6 h-6" />
         </Link>
