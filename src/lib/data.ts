@@ -1,4 +1,4 @@
-import { AcademicCapIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
+import { GraduationCap, BriefcaseBusiness } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import fontanelle from '../../public/fontanelle.png';
 import instantMessaging from '../../public/instant-messaging.png';
@@ -43,17 +43,17 @@ export const links = [
 export const experiences = [{
   title: 'Politecnico di Bari',
   description: 'Graduated with a score of 110 cum laude in Computer and Automation Engineering.',
-  icon: AcademicCapIcon,
+  icon: GraduationCap,
   year: '2019 - 2022'
 }, {
   title: 'Leaf s.r.l.',
   description: 'I work as a full stack developer using tools such as Express, React, MongoDB and Docker',
-  icon: BriefcaseIcon,
+  icon: BriefcaseBusiness,
   year: '2022 - 2024'
 }, {
   title: 'Politecnico di Bari',
   description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.',
-  icon: AcademicCapIcon,
+  icon: GraduationCap,
   year: `2022 - ${(new Date()).getFullYear()}`
 }] as const;
 

@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 interface TelegramNotification {
   email: string,
   notion_url: string
@@ -19,4 +17,3 @@ export async function sendTelegramNotification({ email, notion_url }: TelegramNo
 
   return res.json();
 }
-
