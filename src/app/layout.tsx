@@ -14,6 +14,12 @@ const description = 'Software Engineering student & Full Stack Developer';
 export const metadata: Metadata = {
   title,
   description,
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon.png',
+    }
+  ],
   openGraph: {
     title,
     description,
@@ -40,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased dark', fontSans.variable)}>
+      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         {children}
       </body>
     </html>
