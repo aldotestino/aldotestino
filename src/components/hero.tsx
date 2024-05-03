@@ -11,8 +11,8 @@ function Hero() {
   return (
     <section id="home" className="flex  flex-col gap-8 items-center relative">
 
-      <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-[#946263]"></div>
-      <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-[#676394]"></div>
+      <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-[#946263]/40"></div>
+      <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-[#676394]/40"></div>
         
       <div className="relative">
         {/* <motion.img
@@ -51,9 +51,9 @@ function Hero() {
         
       <motion.h1 
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }} 
-        className="text-3xl z-[999] text-center leading-snug">
-        <span className="font-bold">Hello, I&apos;m Aldo.</span> I&apos;m a <span className="text-primary font-bold">full-stack developer</span> with <span className="font-bold">4 years</span> of experience. I turn ideas into reality using the power of <span className="underline">modern web technologies</span>.
+        animate={{ opacity: 1, y: 0 }}
+        className="z-10 pb-1 text-4xl text-transparent bg-clip-text bg-gradient-to-b from-slate-50 to-slate-400 text-center font-bold">
+        Hey, I&apos;m Aldo, a Full Stack Dev turning ideas into reality using the power of modern web technologies.
       </motion.h1>
 
       <motion.div 
