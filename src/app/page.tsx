@@ -19,7 +19,6 @@ export default function Home() {
       <Experience />
       <Contact />
       <Footer />
-      <Toaster />
     </div>
   );
 }
