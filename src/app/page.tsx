@@ -19,7 +19,7 @@ export default function Home() {
       <Experience />
       <Contact />
       <Footer />
-      <BackgroundBeams />
+      <BackgroundBeams className="hidden md:block" />
     </div>
   );
 }
