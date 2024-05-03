@@ -62,7 +62,7 @@ function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Your email" {...field} />
+                <Input placeholder="Your email" className="bg-muted text-md" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -74,7 +74,7 @@ function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Textarea placeholder="Send me a message" {...field} />
+                <Textarea placeholder="Send me a message" className="bg-muted text-md" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

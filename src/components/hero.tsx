@@ -64,7 +64,7 @@ function Hero() {
         }}
         className="flex flex-col items-center sm:flex-row z-[999] gap-4">
 
-        <Link href="#contant" className={cn(buttonVariants({ size: 'lg' }), 'text-lg space-x-2 hover:scale-105 transition-all rounded-full')}>
+        <Link href="#contact" className={cn(buttonVariants({ size: 'lg' }), 'text-lg space-x-2 hover:scale-105 transition-all rounded-full')}>
           <span>Contact me</span>
           <ArrowRight className="w-6 h-6" />
         </Link>
