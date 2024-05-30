@@ -5,6 +5,8 @@ import { links, statuses } from '../lib/data';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
+import memojiPc from '@/assets/memojipc.png';
+import Image from 'next/image';
 
 function Hero() {
 
@@ -15,17 +17,7 @@ function Hero() {
       <div style={{ transform: 'translate3d(0,0,0)' }} className="absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-[#676394]/40"></div>
         
       <div className="relative">
-        {/* <motion.img
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            type: 'tween',
-            duration: 0.2,
-          }}
-          className='rounded-full w-36 h-36 object-cover border-4 border-white' 
-          src="https://media.licdn.com/dms/image/D4D03AQF02D9diNNmTA/profile-displayphoto-shrink_200_200/0/1693302061859?e=1700697600&v=beta&t=3EHZG0BLvE8AXxWvnj6IJIrwk_bgVV10_ieZRIFVrrg" 
-        /> */}
-        <motion.img
+        <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -33,8 +25,9 @@ function Hero() {
             duration: 0.2,
           }}
           className='w-36 h-36' 
-          src="/memojipc.png" 
-        />
+        >
+          <Image quality={95} priority src={memojiPc} alt='me' className='object-cover' />
+        </motion.div>
         <motion.span
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}

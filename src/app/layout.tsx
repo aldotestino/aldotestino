@@ -3,6 +3,7 @@ import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
+import { PHProvider } from '@/app/_analytics/provider';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -15,12 +16,6 @@ const description = 'Software Engineering student & Full Stack Developer';
 export const metadata: Metadata = {
   title,
   description,
-  icons: [
-    {
-      rel: 'icon',
-      url: '/favicon.png',
-    }
-  ],
   openGraph: {
     title,
     description,
@@ -47,10 +42,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen font-sans antialiased dark', fontSans.variable)}>
-        {children}
-        <Toaster />
-      </body>
+      <PHProvider>
+        <body className={cn('min-h-screen font-sans antialiased dark', fontSans.variable)}>
+          {children}
+          <Toaster />
+        </body>
+      </PHProvider>
     </html>
   );
 }

@@ -1,8 +1,8 @@
 import { GraduationCap, BriefcaseBusiness } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import fontanelle from '../../public/fontanelle.png';
-import instantMessaging from '../../public/instant-messaging.png';
-import vctmang from '../../public/vcetmang.png';
+import fontanelle from '@/assets/fontanelle.png';
+import instantMessaging from '@/assets/instant-messaging.png';
+import vctmang from '@/assets/vcetmang.png';
 
 export const statuses = ['🤞', '✌️', '🤘', '👌', '🤌', '👍', '👋', '🤙', '🖖', '💪'] as const;
 

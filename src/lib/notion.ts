@@ -1,3 +1,5 @@
+import env from './env';
+
 interface UpdateNotionDBArgs {
   email?: string,
   message?: string
@@ -7,7 +9,7 @@ export async function updateNotionDB({ email, message }: UpdateNotionDBArgs) {
   const notion = await fetch('https://api.notion.com/v1/pages', {
     method: 'POST',
     body: JSON.stringify({
-      parent: { database_id: process.env.NOTION_DATABASE_URL },
+      parent: { database_id: env.NOTION_DATABASE_ID },
       properties: {
         email: {
           title: [
@@ -35,7 +37,7 @@ export async function updateNotionDB({ email, message }: UpdateNotionDBArgs) {
       }
     }),
     headers: {
-      Authorization: `Bearer ${process.env.NOTION_SECRET}`,
+      Authorization: `Bearer ${env.NOTION_SECRET}`,
       'Content-Type': 'application/json',
       'Notion-Version': '2021-05-13'
     }
