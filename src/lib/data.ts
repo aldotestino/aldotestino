@@ -64,7 +64,7 @@ export const skills = [
 export const projects = [{
   title: 'Fontanelle',
   description: 'Worked on this Web App for almost two months. It allows users to find the nearest public fountain, add new ones, vote and report their problems.',
-  deploy: 'https://fontanelle.aldotestino.online',
+  deploy: '',
   github: 'https://github.com/aldotestino/fontanelle',
   image: fontanelle,
   tags: ['Go', 'React', 'PostgreSQL', 'MapBox', 'Google Cloud', 'Docker', 'Nginx']
