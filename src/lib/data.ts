@@ -41,10 +41,15 @@ export const links = [
 ] as const;
 
 export const experiences = [{
+  title: 'Olivetti',
+  description: 'I cover the position of PaaS/SaaS Solution Designer in the IT Operation Team',
+  icon: BriefcaseBusiness,
+  year: `2024 - ${(new Date()).getFullYear()}`
+}, {
   title: 'Politecnico di Bari',
-  description: 'Graduated with a score of 110 cum laude in Computer and Automation Engineering.',
+  description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.',
   icon: GraduationCap,
-  year: '2019 - 2022'
+  year: `2022 - ${(new Date()).getFullYear()}`
 }, {
   title: 'Leaf s.r.l.',
   description: 'I work as a full stack developer using tools such as Express, React, MongoDB and Docker',
@@ -52,14 +57,9 @@ export const experiences = [{
   year: '2022 - 2024'
 }, {
   title: 'Politecnico di Bari',
-  description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.',
+  description: 'Graduated with a score of 110 cum laude in Computer and Automation Engineering.',
   icon: GraduationCap,
-  year: `2022 - ${(new Date()).getFullYear()}`
-}, {
-  title: 'Olivetti',
-  description: 'I cover the position of PaaS/SaaS Solution Designer in the IT Operation Team',
-  icon: BriefcaseBusiness,
-  year: `2024 - ${(new Date()).getFullYear()}`
+  year: '2019 - 2022'
 }] as const;
 
 export const skills = [
