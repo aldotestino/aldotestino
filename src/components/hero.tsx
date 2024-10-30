@@ -1,7 +1,7 @@
 'use client';
 import { ArrowRight, FileDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { links, statuses } from '../lib/data';
+import { links, statuses } from '@/lib/data';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
@@ -62,7 +62,7 @@ function Hero() {
           <ArrowRight className="w-6 h-6" />
         </Link>
 
-        <Link href="/resume.pdf" target="_blank" className={cn(buttonVariants({ variant: 'secondary', size: 'lg' }), 'text-lg space-x-2 hover:scale-105 transition-all rounded-full')}>
+        <Link href="/resume_Testino_Aldo.pdf" target="_blank" className={cn(buttonVariants({ variant: 'secondary', size: 'lg' }), 'text-lg space-x-2 hover:scale-105 transition-all rounded-full')}>
           <span>Download CV</span>
           <FileDown className="w-6 h-6" />
         </Link>

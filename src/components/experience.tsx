@@ -10,7 +10,7 @@ function Experience() {
       <h2 className="text-3xl font-medium pb-6">My Experience</h2>
       <div className="space-y-6">
         {
-          experiences.map((e, i) => (
+          experiences.toReversed().map((e, i) => (
             <ExperienceCard {...e} key={i} index={i} />
           ))
         }

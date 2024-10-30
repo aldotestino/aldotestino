@@ -55,6 +55,11 @@ export const experiences = [{
   description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.',
   icon: GraduationCap,
   year: `2022 - ${(new Date()).getFullYear()}`
+}, {
+  title: 'Olivetti',
+  description: 'I cover the position of PaaS/SaaS Solution Designer in the IT Operation Team',
+  icon: BriefcaseBusiness,
+  year: `2024 - ${(new Date()).getFullYear()}`
 }] as const;
 
 export const skills = [
