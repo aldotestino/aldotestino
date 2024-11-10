@@ -11,7 +11,7 @@ function ExperienceCard({ icon: Icon, dates, title, location, description }: Exp
         <div className="grid gap-0">
           <span className="text-muted-foreground">{dates}</span>
           <h3 className="text-2xl font-semibold">{title}</h3>
-          <span className="text-muted-foreground">{location}</span>
+          <span className="text-muted-foreground font-semibold">{location}</span>
         </div>
         <p className="prose-lg leading-normal">{description}</p>
       </div>
