@@ -1,12 +1,15 @@
 import type { ComponentProps } from 'react';
+import { InView } from '@/components/ui/in-view';
 import { cn } from '@/lib/utils';
 import { Hash } from 'lucide-react';
 
 export function SectionContainer({ children, className, ...props }: ComponentProps<'section'>) {
   return (
-    <section className={cn('grid gap-8', className)} {...props}>
-      {children}
-    </section>
+    <InView viewOptions={{ once: true }}>
+      <section className={cn('grid gap-8', className)} {...props}>
+        {children}
+      </section>
+    </InView>
   );
 }
 
