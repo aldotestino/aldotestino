@@ -1,11 +1,11 @@
-import { Section, SectionContent, SectionHeader } from '@/components/section';
+import { SectionContainer, SectionContent, SectionHeader } from '@/components/section-container';
 import SkillIcon from '@/components/skill-icon';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import { icons } from '@/lib/data';
 
 function Skills() {
   return (
-    <Section>
+    <SectionContainer>
       <SectionHeader>Skills</SectionHeader>
       <SectionContent className="relative">
         <div className="w-full absolute z-50 h-full bg-gradient-to-r from-background from-5% via-transparent to-background to-95%" />
@@ -15,7 +15,7 @@ function Skills() {
           ))}
         </InfiniteSlider>
       </SectionContent>
-    </Section>
+    </SectionContainer>
   );
 }
 

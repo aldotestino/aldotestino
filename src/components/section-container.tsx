@@ -1,8 +1,8 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { ComponentProps } from 'react';
 import { cn } from '@/lib/utils';
 import { Hash } from 'lucide-react';
 
-export function Section({ children, className, ...props }: ComponentProps<'section'>) {
+export function SectionContainer({ children, className, ...props }: ComponentProps<'section'>) {
   return (
     <section className={cn('grid gap-8', className)} {...props}>
       {children}
