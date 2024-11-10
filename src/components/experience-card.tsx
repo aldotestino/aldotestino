@@ -18,8 +18,8 @@ function ExperienceCard({ icon: Icon, dates, title, location, description }: Exp
     >
       <div className="grid grid-cols-[auto,1fr] gap-6">
         <div className="grid grid-rows-[auto,1fr] gap-2 items-center">
-          <Icon className="size-10 text-zinc-400" />
-          <span className="w-[3px] h-full rounded-full mx-auto bg-zinc-400" />
+          <Icon className="size-10 text-muted-foreground" />
+          <span className="w-[3px] h-full rounded-full mx-auto bg-muted-foreground" />
         </div>
         <div className="py-2 grid gap-2">
           <div className="grid gap-0">
