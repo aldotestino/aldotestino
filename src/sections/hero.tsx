@@ -21,7 +21,7 @@ function Hero() {
               <MessageCircle className="size-4 mr-2" />
               Contact Me
             </Link>
-            <Link href="/resume_Aldo_Testino.pdf" target="_blank" className={buttonVariants({ variant: 'outline' })}>
+            <Link href="/CV_Aldo_Testino.pdf" target="_blank" className={buttonVariants({ variant: 'outline' })}>
               <FileDown className="size-4 mr-2" />
               Download CV
             </Link>
