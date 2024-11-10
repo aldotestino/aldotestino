@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { PHProvider } from '@/app/_analytics/provider';
 import { Toaster } from '@/components/ui/toaster';
 import localFont from 'next/font/local';
 import './globals.css';
@@ -26,12 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Toaster />
-      </body>
+      <PHProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {children}
+          <Toaster />
+        </body>
+      </PHProvider>
     </html>
   );
 }
