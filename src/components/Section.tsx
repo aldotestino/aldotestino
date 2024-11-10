@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { div } from 'framer-motion/client';
 import { Hash } from 'lucide-react';
 
 export function Section({ children }: { children: ReactNode }) {
