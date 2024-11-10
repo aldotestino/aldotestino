@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-function hero() {
+function Hero() {
   return (
     <section className="flex flex-col-reverse gap-4 justify-between items-center md:flex-row md:gap-24">
       <div className="flex flex-col gap-4">
@@ -33,4 +33,4 @@ function hero() {
   );
 }
 
-export default hero;
+export default Hero;

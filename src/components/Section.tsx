@@ -1,16 +1,28 @@
+import type { ReactNode } from 'react';
+import { div } from 'framer-motion/client';
 import { Hash } from 'lucide-react';
-import React from 'react';
 
-function Section({ children, title }: { children: React.ReactNode; title: string }) {
+export function Section({ children }: { children: ReactNode }) {
   return (
     <section className="grid gap-8">
-      <div className="grid grid-cols-[auto,1fr] gap-2 items-center">
-        <Hash className="size-10" />
-        <h2 className="text-4xl font-bold">{title}</h2>
-      </div>
       {children}
     </section>
   );
 }
 
-export default Section;
+export function SectionHeader({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex gap-2 items-center">
+      <Hash className="size-8" />
+      <h2 className="text-3xl font-bold">{children}</h2>
+    </div>
+  );
+}
+
+export function SectionContent({ children }: { children: ReactNode }) {
+  return (
+    <div className="grid gap-4">
+      {children}
+    </div>
+  );
+}
