@@ -4,7 +4,7 @@ import { experiences } from '@/lib/data';
 
 function Experiences() {
   return (
-    <SectionContainer>
+    <SectionContainer id="experiences">
       <SectionHeader>Experiences</SectionHeader>
       <SectionContent>
         {experiences.map(experience => (

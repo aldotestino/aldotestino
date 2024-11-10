@@ -4,7 +4,7 @@ import React from 'react';
 
 function Contact() {
   return (
-    <SectionContainer>
+    <SectionContainer id="contact">
       <SectionHeader>Contact</SectionHeader>
       <SectionContent className="place-items-center">
         <p>

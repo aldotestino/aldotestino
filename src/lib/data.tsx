@@ -1,4 +1,7 @@
-import type { Experience } from '@/lib/types';
+import type { Experience, Project } from '@/lib/types';
+import fontanelle from '@/assets/fontanelle.webp';
+import instantMessaging from '@/assets/instant-messaging.webp';
+import vctmang from '@/assets/vcetmang.webp';
 import { Briefcase, GraduationCap, Rocket } from 'lucide-react';
 
 export const experiences: Experience[] = [{
@@ -14,7 +17,7 @@ export const experiences: Experience[] = [{
   dates: 'September 2022 - Now',
   title: 'Politecnico di Bari',
   location: 'Bari, Italy',
-  description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.',
+  description: 'I am pursuing a master\'s degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum',
 }, {
   id: '3',
   icon: Rocket,
@@ -28,10 +31,33 @@ export const experiences: Experience[] = [{
   dates: 'September 2019 - July 2022',
   title: 'Politecnico di Bari',
   location: 'Bari, Italy',
-  description: 'Graduated with a score of 110 cum laude in Computer and Automation Engineering.',
+  description: 'Graduated with a score of 110 cum laude in Computer and Automation Engineering',
 }];
 
-export const icons = {
+export const projects: Project[] = [{
+  id: '1',
+  title: 'Fontanelle',
+  description: 'Worked on this Web App for almost two months. It allows users to find the nearest public fountain, add new ones, vote and report their problems',
+  repository: 'https://github.com/aldotestino/fontanelle',
+  tags: ['Go', 'React', 'PostgreSQL', 'MapBox', 'Google Cloud', 'Docker', 'Nginx'],
+  image: fontanelle,
+}, {
+  id: '2',
+  title: 'Instant Messaging',
+  description: 'This is one of my first projects. It is a simple instant messaging app that allows users to send messages to each other',
+  repository: 'https://github.com/aldotestino/instant-messaging',
+  image: instantMessaging,
+  tags: ['NodeJS', 'React', 'PostgreSQL', 'Prisma', 'GraphQL', 'Docker'],
+}, {
+  id: '3',
+  title: 'Vctmang',
+  description: 'This is a project work for the course of Fondamenti Web at Politecnico di Bari. It is a website for a fictional fast food company',
+  repository: 'https://github.com/aldotestino/vcetmang',
+  image: vctmang,
+  tags: ['NodeJS', 'React', 'MongoDB', 'REST API', 'Socket.io', 'Docker'],
+}];
+
+export const skills = {
   css: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M8.76 1l10.055 112.883 45.118 12.58 45.244-12.626L119.24 1H8.76zm89.591 25.862l-3.347 37.605.01.203-.014.467v-.004l-2.378 26.294-.262 2.336L64 101.607v.001l-.022.019-28.311-7.888L33.75 72h13.883l.985 11.054 15.386 4.17-.004.008v-.002l15.443-4.229L81.075 65H48.792l-.277-3.043-.631-7.129L47.553 51h34.749l1.264-14H30.64l-.277-3.041-.63-7.131L29.401 23h69.281l-.331 3.862z" /></svg>,
   express: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M126.67 98.44c-4.56 1.16-7.38.05-9.91-3.75-5.68-8.51-11.95-16.63-18-24.9-.78-1.07-1.59-2.12-2.6-3.45C89 76 81.85 85.2 75.14 94.77c-2.4 3.42-4.92 4.91-9.4 3.7l26.92-36.13L67.6 29.71c4.31-.84 7.29-.41 9.93 3.45 5.83 8.52 12.26 16.63 18.67 25.21 6.45-8.55 12.8-16.67 18.8-25.11 2.41-3.42 5-4.72 9.33-3.46-3.28 4.35-6.49 8.63-9.72 12.88-4.36 5.73-8.64 11.53-13.16 17.14-1.61 2-1.35 3.3.09 5.19C109.9 76 118.16 87.1 126.67 98.44zM1.33 61.74c.72-3.61 1.2-7.29 2.2-10.83 6-21.43 30.6-30.34 47.5-17.06C60.93 41.64 63.39 52.62 62.9 65H7.1c-.84 22.21 15.15 35.62 35.53 28.78 7.15-2.4 11.36-8 13.47-15 1.07-3.51 2.84-4.06 6.14-3.06-1.69 8.76-5.52 16.08-13.52 20.66-12 6.86-29.13 4.64-38.14-4.89C5.26 85.89 3 78.92 2 71.39c-.15-1.2-.46-2.38-.7-3.57q.03-3.04.03-6.08zm5.87-1.49h50.43c-.33-16.06-10.33-27.47-24-27.57-15-.12-25.78 11.02-26.43 27.57z" /></svg>,
   fastify: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M122.097 35.53 126 25.422l-.17-.626-38.613 10.173c4.117-5.955 2.703-10.731 2.703-10.731s-12.331 7.874-21.656 7.668c-9.325-.206-12.331-2.695-26.629 1.867-14.298 4.557-18.339 18.549-22.484 21.555C15.006 58.334 2 68.123 2 68.123l.028.174 11.725-3.733s-3.216 3.03-10.048 12.238l-.319-.295.012.065s5.491 8.392 10.88 6.84c.541-.158 1.151-.416 1.818-.756 2.17 1.208 5.002 2.396 8.129 2.723 0 0-2.117-2.461-3.883-5.26.477-.307.966-.626 1.463-.949l-.23.162 4.465 1.64-.493-4.198c.016-.008.028-.02.044-.028l4.388 1.612-.545-3.818a36.54 36.54 0 0 1 1.665-.82l4.574-17.3 18.913-12.901-1.505 3.781c-3.834 9.43-11.034 11.656-11.034 11.656l-3.006 1.139c-2.234 2.642-3.176 3.293-3.943 12.161 1.802-.453 3.523-.562 5.083-.141 8.081 2.178 10.88 11.915 8.703 14.61-.545.675-1.842 1.826-3.479 3.18h-3.281l-.044 2.659c-.113.089-.226.174-.335.263h-3.337l-.04 2.594c-.295.226-.59.444-.873.659-3.135.065-7.107-2.671-7.107-2.671 0 2.489 2.073 6.319 2.073 6.319s.137-.065.368-.178c-.202.149-.315.23-.315.23s8.392 5.596 13.676 3.523c4.699-1.842 16.864-11.434 27.365-15.975l31.777-8.371 4.19-10.856-24.217 6.38v-9.749l28.415-7.487 4.19-10.856-32.597 8.59v-9.753l36.784-9.696zM64.426 56.196l7.539-1.988.101.376-2.351 6.093-7.814 2.061 2.525-6.542zm2.602 13.042-7.814 2.061 2.525-6.545 7.539-1.988.101.376-2.351 6.096zm10.182-2.186-7.814 2.061 2.525-6.545 7.539-1.988.101.376-2.351 6.096z" /></svg>,

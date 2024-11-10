@@ -2,7 +2,7 @@ import { SectionContainer, SectionContent, SectionHeader } from '@/components/se
 
 function About() {
   return (
-    <SectionContainer>
+    <SectionContainer id="about">
       <SectionHeader>About Me</SectionHeader>
       <SectionContent className="prose-lg leading-normal">
         <p className="m-0">After completing my bachelor's degree in Computer and Automation Engineering with an experimental thesis in collaboration with the startup Leaf s.r.l., I decided to further my education by pursuing a master's degree in Computer Engineering with a specialization in the Cyberphysical Systems curriculum.</p>

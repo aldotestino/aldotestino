@@ -10,7 +10,7 @@ function Hero() {
     <section className="flex flex-col-reverse gap-4 justify-between items-center md:flex-row md:gap-24">
       <div className="flex flex-col gap-4">
         <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-black to-zinc-500">Aldo Testino</h1>
-        <p className="prose-lg">I’m a Full Stack Dev turning ideas into reality using the power of modern web technologies.</p>
+        <p className="prose-xl leading-normal">I’m a Full Stack Dev turning ideas into reality using the power of modern web technologies.</p>
         <div className="flex items-center flex-wrap gap-4 justify-center md:justify-start">
           <Link href="#contact" className={buttonVariants()}>
             <MessageCircle className="size-4 mr-2" />

@@ -1,9 +1,9 @@
-import { icons } from '@/lib/data';
+import { skills } from '@/lib/data';
 
-function SkillIcon({ name, className }: { name: keyof typeof icons; className?: string }) {
+function SkillIcon({ name, className }: { name: keyof typeof skills; className?: string }) {
   return (
     <div className={className}>
-      {icons[name]}
+      {skills[name]}
     </div>
   );
 }
