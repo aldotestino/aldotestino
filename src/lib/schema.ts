@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
-export const contactSchema = z.object({
+export const messageSchema = z.object({
   email: z.string().email(),
   message: z.string().min(10),
 });
 
-export type ContactInput = z.infer<typeof contactSchema>;
+export type MessageInput = z.infer<typeof messageSchema>;

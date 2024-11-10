@@ -1,26 +1,42 @@
 'use client';
 
-import type { ContactInput } from '@/lib/schema';
+import type { MessageInput } from '@/lib/schema';
 import SubmitButton from '@/components/submit-button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { contactSchema } from '@/lib/schema';
+import { useToast } from '@/hooks/use-toast';
+import { messageSchema } from '@/lib/schema';
+import { sendMessage } from '@/server/actions';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 function ContactForm() {
-  const form = useForm<ContactInput>({
-    resolver: zodResolver(contactSchema),
+  const form = useForm<MessageInput>({
+    resolver: zodResolver(messageSchema),
     defaultValues: {
       email: '',
       message: '',
     },
   });
 
-  async function onSubmit(values: ContactInput) {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log(values);
+  const { toast } = useToast();
+
+  async function onSubmit(values: MessageInput) {
+    const res = await sendMessage(values);
+    if (res.message) {
+      toast({
+        title: 'Success',
+        description: res.message,
+      });
+    }
+    else {
+      toast({
+        title: 'Error',
+        description: res.error,
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
