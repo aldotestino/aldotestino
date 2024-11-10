@@ -2,6 +2,7 @@ import About from '@/sections/about';
 import Experiences from '@/sections/experiences';
 import Footer from '@/sections/footer';
 import Hero from '@/sections/hero';
+import Skills from '@/sections/skills';
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <About />
       <Experiences />
+      <Skills />
       <Footer />
     </main>
   );
