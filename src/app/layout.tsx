@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PHProvider } from '@/app/_analytics/provider';
+import { CommandMenu } from '@/components/command-menu';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import localFont from 'next/font/local';
@@ -59,6 +60,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <CommandMenu />
             <Toaster />
           </ThemeProvider>
         </body>
