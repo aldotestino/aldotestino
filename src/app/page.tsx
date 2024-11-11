@@ -8,7 +8,7 @@ import Skills from '@/sections/skills';
 
 export default function Home() {
   return (
-    <main className="w-full max-w-screen-md mx-auto px-4 grid gap-20 py-20">
+    <main className="w-full max-w-screen-md mx-auto px-4 grid gap-20 py-20 overflow-x-hidden">
       <Hero />
       <About />
       <Experiences />
