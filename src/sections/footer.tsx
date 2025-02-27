@@ -3,7 +3,7 @@ function Footer() {
     <p className="text-muted-foreground text-center">
       ©
       {' '}
-      {new Date().getUTCFullYear()}
+      {new Date().getFullYear()}
       {' '}
       Aldo Testino. All rights reserved.
     </p>
