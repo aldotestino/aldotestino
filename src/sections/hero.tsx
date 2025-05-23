@@ -2,6 +2,7 @@ import memoji from '@/assets/memoji.png';
 import { buttonVariants } from '@/components/ui/button';
 import { InView } from '@/components/ui/in-view';
 import { TextScramble } from '@/components/ui/text-scramble';
+import { cn } from '@/lib/utils';
 import { FileDown, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,18 +18,18 @@ function Hero() {
           </TextScramble>
           <p className="text-center sm:text-left prose-xl leading-normal">I'm a software engineer passionate about crafting elegant solutions and building impactful applications that solve real-world problems.</p>
           <div className="flex items-center flex-wrap gap-4 justify-center md:justify-start">
-            <Link href="#contact" className={buttonVariants()}>
+            <Link href="#contact" className={buttonVariants({ size: 'lg' })}>
               <MessageCircle className="size-4 mr-2" />
               Contact Me
             </Link>
-            <Link href="/CV_Aldo_Testino.pdf" target="_blank" className={buttonVariants({ variant: 'outline' })}>
+            <Link href="/CV_Aldo_Testino.pdf" target="_blank" className={buttonVariants({ variant: 'outline', size: 'lg' })}>
               <FileDown className="size-4 mr-2" />
               Download CV
             </Link>
-            <Link href="https://linkedin.com/in/aldotestino" target="_blank" className={buttonVariants({ variant: 'outline', size: 'icon' })}>
+            <Link href="https://linkedin.com/in/aldotestino" target="_blank" className={cn(buttonVariants({ variant: 'outline', size: 'icon' }), 'size-10')}>
               <FaLinkedin className="size-4" />
             </Link>
-            <Link href="https://github.com/aldotestino" target="_blank" className={buttonVariants({ variant: 'outline', size: 'icon' })}>
+            <Link href="https://github.com/aldotestino" target="_blank" className={cn(buttonVariants({ variant: 'outline', size: 'icon' }), 'size-10')}>
               <FaGithub className="size-4" />
             </Link>
           </div>

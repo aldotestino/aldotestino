@@ -10,7 +10,7 @@ function Contact() {
         <p>
           Please contact me at
           {' '}
-          <a className="underline font-semibold text-primary" href="mailto:aldotestino4@gmail.com">aldotestino4@gmail.com</a>
+          <a className="hover:underline font-semibold text-primary transition-all" href="mailto:aldotestino4@gmail.com">aldotestino4@gmail.com</a>
           {' '}
           or through this form.
         </p>
