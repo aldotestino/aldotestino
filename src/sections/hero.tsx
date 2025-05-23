@@ -15,7 +15,7 @@ function Hero() {
           <TextScramble className="text-center sm:text-left text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-black to-zinc-500 dark:from-white dark:to-zinc-500">
             Aldo Testino
           </TextScramble>
-          <p className="text-center sm:text-left prose-xl leading-normal">I’m a Full Stack Dev turning ideas into reality using the power of modern web technologies.</p>
+          <p className="text-center sm:text-left prose-xl leading-normal">I'm a software engineer passionate about crafting elegant solutions and building impactful applications that solve real-world problems.</p>
           <div className="flex items-center flex-wrap gap-4 justify-center md:justify-start">
             <Link href="#contact" className={buttonVariants()}>
               <MessageCircle className="size-4 mr-2" />
