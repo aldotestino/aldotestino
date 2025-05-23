@@ -7,6 +7,7 @@ export default antfu({
     'no-console': 'warn',
     'node/no-process-env': 'warn',
     'ts/consistent-type-definitions': ['error', 'type'],
+    'perfectionist/sort-imports': 'off',
   },
   ignores: ['node_modules', 'dist', 'build', 'src/components/ui', 'tailwind.config.ts'],
   stylistic: {

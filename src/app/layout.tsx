@@ -18,7 +18,7 @@ const geistMono = localFont({
 });
 
 const title = 'aldotestino';
-const description = 'Software Engineering student & Full Stack Developer';
+const description = 'Junior Software Engineer @ Albatross AI';
 
 export const metadata: Metadata = {
   title,
