@@ -1,6 +1,9 @@
 import ContactForm from '@/components/contact-form';
-import { SectionContainer, SectionContent, SectionHeader } from '@/components/section-container';
-import React from 'react';
+import {
+  SectionContainer,
+  SectionContent,
+  SectionHeader,
+} from '@/components/section-container';
 
 function Contact() {
   return (
@@ -8,10 +11,13 @@ function Contact() {
       <SectionHeader>Contact</SectionHeader>
       <SectionContent className="place-items-center">
         <p>
-          Please contact me at
-          {' '}
-          <a className="hover:underline font-semibold text-primary transition-all" href="mailto:aldotestino4@gmail.com">aldotestino4@gmail.com</a>
-          {' '}
+          Please contact me at{' '}
+          <a
+            className="font-semibold text-primary transition-all hover:underline"
+            href="mailto:aldotestino4@gmail.com"
+          >
+            aldotestino4@gmail.com
+          </a>{' '}
           or through this form.
         </p>
         <ContactForm />

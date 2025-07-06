@@ -1,9 +1,13 @@
+import { Hash } from 'lucide-react';
 import type { ComponentProps } from 'react';
 import { InView } from '@/components/ui/in-view';
 import { cn } from '@/lib/utils';
-import { Hash } from 'lucide-react';
 
-export function SectionContainer({ children, className, ...props }: ComponentProps<'section'>) {
+export function SectionContainer({
+  children,
+  className,
+  ...props
+}: ComponentProps<'section'>) {
   return (
     <InView viewOptions={{ once: true }}>
       <section className={cn('grid gap-8', className)} {...props}>
@@ -13,16 +17,24 @@ export function SectionContainer({ children, className, ...props }: ComponentPro
   );
 }
 
-export function SectionHeader({ children, className, ...props }: ComponentProps<'div'>) {
+export function SectionHeader({
+  children,
+  className,
+  ...props
+}: ComponentProps<'div'>) {
   return (
-    <div className={cn('flex gap-2 items-center', className)} {...props}>
+    <div className={cn('flex items-center gap-2', className)} {...props}>
       <Hash className="size-8" />
-      <h2 className="text-3xl font-bold">{children}</h2>
+      <h2 className="font-bold text-3xl">{children}</h2>
     </div>
   );
 }
 
-export function SectionContent({ children, className, ...props }: ComponentProps<'div'>) {
+export function SectionContent({
+  children,
+  className,
+  ...props
+}: ComponentProps<'div'>) {
   return (
     <div className={cn('grid gap-4', className)} {...props}>
       {children}

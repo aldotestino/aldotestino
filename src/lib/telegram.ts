@@ -1,8 +1,14 @@
 'only server';
 
-import env from '@/lib/env';
+import { env } from '@/lib/env';
 
-export async function sendTelegramNotification({ email, notionUrl }: { email: string; notionUrl: string }) {
+export async function sendTelegramNotification({
+  email,
+  notionUrl,
+}: {
+  email: string;
+  notionUrl: string;
+}) {
   const telegramUrl = `https://api.telegram.org/bot${env.TELEGRAM_BOT_API_KEY}/sendMessage`;
 
   const urlSearchParams = new URLSearchParams();

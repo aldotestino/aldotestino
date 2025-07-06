@@ -1,7 +1,7 @@
 'only server';
 
+import { env } from '@/lib/env';
 import type { MessageInput } from '@/lib/schema';
-import env from '@/lib/env';
 
 export async function saveMessageToNotion({ email, message }: MessageInput) {
   const notion = await fetch('https://api.notion.com/v1/pages', {
@@ -35,7 +35,7 @@ export async function saveMessageToNotion({ email, message }: MessageInput) {
       },
     }),
     headers: {
-      'Authorization': `Bearer ${env.NOTION_SECRET}`,
+      Authorization: `Bearer ${env.NOTION_SECRET}`,
       'Content-Type': 'application/json',
       'Notion-Version': '2021-05-13',
     },

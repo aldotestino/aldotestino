@@ -1,15 +1,22 @@
 'use client';
 
-import type { MessageInput } from '@/lib/schema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import SubmitButton from '@/components/submit-button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import type { MessageInput } from '@/lib/schema';
 import { messageSchema } from '@/lib/schema';
 import { sendMessage } from '@/server/actions';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 
 function ContactForm() {
   const form = useForm<MessageInput>({
@@ -29,8 +36,7 @@ function ContactForm() {
         title: 'Success',
         description: res.message,
       });
-    }
-    else {
+    } else {
       toast({
         title: 'Error',
         description: res.error,
@@ -41,7 +47,10 @@ function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 w-full max-w-screen-sm">
+      <form
+        className="w-full max-w-screen-sm space-y-4"
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <FormField
           control={form.control}
           name="email"

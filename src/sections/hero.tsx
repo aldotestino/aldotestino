@@ -1,40 +1,69 @@
+import { FileDown, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import memoji from '@/assets/memoji.png';
 import { buttonVariants } from '@/components/ui/button';
 import { InView } from '@/components/ui/in-view';
 import { TextScramble } from '@/components/ui/text-scramble';
 import { cn } from '@/lib/utils';
-import { FileDown, MessageCircle } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 function Hero() {
   return (
     <InView viewOptions={{ once: true }}>
-      <section className="flex flex-col-reverse gap-4 justify-between items-center md:flex-row md:gap-24">
+      <section className="flex flex-col-reverse items-center justify-between gap-4 md:flex-row md:gap-24">
         <div className="flex flex-col gap-4">
-          <TextScramble className="text-center sm:text-left text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-black to-zinc-500 dark:from-white dark:to-zinc-500">
+          <TextScramble className="bg-gradient-to-b from-black to-zinc-500 bg-clip-text text-center font-extrabold text-5xl text-transparent sm:text-left md:text-6xl dark:from-white dark:to-zinc-500">
             Aldo Testino
           </TextScramble>
-          <p className="text-center sm:text-left prose-xl leading-normal">I'm a software engineer passionate about crafting elegant solutions and building impactful applications that solve real-world problems.</p>
-          <div className="flex items-center flex-wrap gap-4 justify-center md:justify-start">
-            <Link href="#contact" className={buttonVariants({ size: 'lg' })}>
-              <MessageCircle className="size-4 mr-2" />
+          <p className="prose-xl text-center leading-normal sm:text-left">
+            I'm a software engineer passionate about crafting elegant solutions
+            and building impactful applications that solve real-world problems.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+            <Link className={buttonVariants({ size: 'lg' })} href="#contact">
+              <MessageCircle className="mr-2 size-4" />
               Contact Me
             </Link>
-            <Link href="/CV_Aldo_Testino.pdf" target="_blank" className={buttonVariants({ variant: 'outline', size: 'lg' })}>
-              <FileDown className="size-4 mr-2" />
+            <Link
+              className={buttonVariants({ variant: 'outline', size: 'lg' })}
+              href="/CV_Aldo_Testino.pdf"
+              target="_blank"
+            >
+              <FileDown className="mr-2 size-4" />
               Download CV
             </Link>
-            <Link href="https://linkedin.com/in/aldotestino" target="_blank" className={cn(buttonVariants({ variant: 'outline', size: 'icon' }), 'size-10')}>
+            <Link
+              className={cn(
+                buttonVariants({ variant: 'outline', size: 'icon' }),
+                'size-10'
+              )}
+              href="https://linkedin.com/in/aldotestino"
+              target="_blank"
+            >
               <FaLinkedin className="size-4" />
             </Link>
-            <Link href="https://github.com/aldotestino" target="_blank" className={cn(buttonVariants({ variant: 'outline', size: 'icon' }), 'size-10')}>
+            <Link
+              className={cn(
+                buttonVariants({ variant: 'outline', size: 'icon' }),
+                'size-10'
+              )}
+              href="https://github.com/aldotestino"
+              target="_blank"
+            >
               <FaGithub className="size-4" />
             </Link>
           </div>
         </div>
-        <Image quality={80} priority src={memoji} height={160} width={160} alt="Aldo Testino" className="object-cover" />
+        <Image
+          alt="Aldo Testino"
+          className="object-cover"
+          height={160}
+          priority
+          quality={80}
+          src={memoji}
+          width={160}
+        />
       </section>
     </InView>
   );

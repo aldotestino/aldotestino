@@ -1,5 +1,9 @@
 import ExperienceCard from '@/components/experience-card';
-import { SectionContainer, SectionContent, SectionHeader } from '@/components/section-container';
+import {
+  SectionContainer,
+  SectionContent,
+  SectionHeader,
+} from '@/components/section-container';
 import { experiences } from '@/lib/data';
 
 function Experiences() {
@@ -7,7 +11,7 @@ function Experiences() {
     <SectionContainer id="experiences">
       <SectionHeader>Experiences</SectionHeader>
       <SectionContent>
-        {experiences.map(experience => (
+        {experiences.map((experience) => (
           <ExperienceCard key={experience.id} {...experience} />
         ))}
       </SectionContent>

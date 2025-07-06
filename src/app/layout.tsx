@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { PHProvider } from '@/app/_analytics/provider';
 import { CommandMenu } from '@/components/command-menu';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import localFont from 'next/font/local';
 import './globals.css';
 
 const geistSans = localFont({
@@ -56,8 +56,8 @@ export default function RootLayout({
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
-            enableSystem
             disableTransitionOnChange
+            enableSystem
           >
             {children}
             <CommandMenu />
