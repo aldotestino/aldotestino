@@ -18,6 +18,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@tailwindcss/vite": "^4",
     "@tanstack/react-devtools": "latest",
+    "@tanstack/react-hotkeys": "^0.10.0",
     "@tanstack/react-router": "latest",
     "@tanstack/react-router-devtools": "latest",
     "@tanstack/react-router-ssr-query": "latest",

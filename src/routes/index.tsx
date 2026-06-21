@@ -1,3 +1,4 @@
+import { useHotkey } from "@tanstack/react-hotkeys";
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
@@ -13,6 +14,7 @@ import {
   TimelineSeparator,
   TimelineTitle,
 } from "../components/reui/timeline";
+import { useTheme } from "../components/theme-provider";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Button } from "../components/ui/button";
 import {
@@ -33,6 +35,11 @@ export const Route = createFileRoute("/")({
 
 function App() {
   const pinnedRepos = Route.useLoaderData();
+  const { theme, setTheme } = useTheme();
+
+  useHotkey("D", () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  });
 
   return (
     <div className="space-y-6 p-2 pb-10 sm:p-6 max-w-5xl mx-auto">

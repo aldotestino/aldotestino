@@ -14,7 +14,7 @@ import { Badge } from "./ui/badge";
 export function RepoCard({ repo }: { repo: PinnedRepo }) {
   return (
     <a href={repo.url} target="_blank" aria-label={repo.name}>
-      <Card className="h-full hover:shadow-lg cursor-pointer duration-150 hover:translate-x-1 hover:-translate-y-1 transition-all">
+      <Card className="h-full hover:shadow-lg cursor-pointer duration-150 hover:translate-x-1 hover:-translate-y-1 transition-[shadow,transform]">
         <CardHeader>
           <CardTitle>{repo.name}</CardTitle>
           <CardDescription>{repo.description}</CardDescription>
