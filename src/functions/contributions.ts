@@ -56,13 +56,15 @@ export const GithubContributions = z.object({
 export type GithubContributions = z.infer<typeof GithubContributions>;
 
 export const getContributions = createServerFn().handler(async () => {
+  const GITHUB_TOKEN = await env.GITHUB_TOKEN.get();
+
   const result = await Result.gen(async function* () {
     const response = yield* await Result.tryPromise({
       try: () =>
         fetch("https://api.github.com/graphql", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+            Authorization: `Bearer ${GITHUB_TOKEN}`,
           },
           body: JSON.stringify({
             query: graphQlQuery,
