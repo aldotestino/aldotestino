@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 import { RepoCard } from "../components/repo-card";
 import {
@@ -34,7 +35,7 @@ function App() {
   const pinnedRepos = Route.useLoaderData();
 
   return (
-    <div className="space-y-6 p-6 max-w-5xl mx-auto">
+    <div className="space-y-6 p-2 pb-10 sm:p-6 max-w-5xl mx-auto">
       <Item variant="outline">
         <ItemMedia>
           <Avatar className="size-10">
@@ -87,7 +88,21 @@ function App() {
               />
             }
           >
-            <FaTwitter />
+            <FaXTwitter />
+          </Button>
+          <Button
+            nativeButton={false}
+            variant="outline"
+            size="icon"
+            render={
+              <a
+                href="mailto:aldotestino4@gmail.com"
+                target="_blank"
+                aria-label="Email"
+              />
+            }
+          >
+            <Mail />
           </Button>
         </ItemActions>
       </Item>
@@ -125,7 +140,7 @@ function App() {
       </div>
       <div className="space-y-3 px-3">
         <h2 className="text-muted-foreground text-sm font-medium">// repos</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {pinnedRepos.map((repo) => (
             <RepoCard key={repo.id} repo={repo} />
           ))}
