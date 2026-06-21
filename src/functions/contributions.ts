@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { Result, TaggedError } from "better-result";
+import { env } from "cloudflare:workers";
 import z from "zod";
 
 const MAX_LEVEL = 4;
@@ -61,7 +62,7 @@ export const getContributions = createServerFn().handler(async () => {
         fetch("https://api.github.com/graphql", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+            Authorization: `Bearer ${env.GITHUB_TOKEN}`,
           },
           body: JSON.stringify({
             query: graphQlQuery,
