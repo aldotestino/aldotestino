@@ -3,6 +3,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import {
+  ContributionGraph,
+  ContributionGraphBlock,
+  ContributionGraphCalendar,
+  ContributionGraphFooter,
+  ContributionGraphLegend,
+} from "../components/kibo-ui/contribution-graph";
 import { RepoCard } from "../components/repo-card";
 import {
   Timeline,
@@ -25,16 +38,25 @@ import {
   ItemMedia,
   ItemTitle,
 } from "../components/ui/item";
+import { getContributions } from "../functions/contributions";
 import { getPinnedRepos } from "../functions/pinned-repos";
 import { experiences } from "../lib/data";
 
 export const Route = createFileRoute("/")({
-  loader: () => getPinnedRepos(),
+  loader: async () => {
+    const pinnedRepos = await getPinnedRepos();
+    const contributions = await getContributions();
+
+    return {
+      pinnedRepos,
+      contributions,
+    };
+  },
   component: App,
 });
 
 function App() {
-  const pinnedRepos = Route.useLoaderData();
+  const { pinnedRepos, contributions } = Route.useLoaderData();
   const { theme, setTheme } = useTheme();
 
   useHotkey("D", () => {
@@ -42,7 +64,7 @@ function App() {
   });
 
   return (
-    <div className="space-y-6 p-2 pb-10 sm:p-6 max-w-5xl mx-auto">
+    <div className="space-y-6 p-6 px-4 sm:px-6 max-w-5xl mx-auto">
       <Item variant="outline">
         <ItemMedia>
           <Avatar className="size-10">
@@ -152,6 +174,42 @@ function App() {
             <RepoCard key={repo.id} repo={repo} />
           ))}
         </div>
+      </div>
+      <div className="space-y-3 px-3">
+        <h2 className="text-muted-foreground text-sm font-medium">
+          // contributions
+        </h2>
+        <ContributionGraph data={contributions.activities} className="mx-auto">
+          <ContributionGraphCalendar>
+            {({ activity, dayIndex, weekIndex }) => (
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <g>
+                      <ContributionGraphBlock
+                        activity={activity}
+                        className="cursor-pointer"
+                        dayIndex={dayIndex}
+                        weekIndex={weekIndex}
+                      />
+                    </g>
+                  }
+                />
+                <TooltipContent className="flex flex-col items-start gap-1">
+                  <p className="font-semibold">{activity.date}</p>
+                  <p>{activity.count} contributions</p>
+                </TooltipContent>
+              </Tooltip>
+            )}
+          </ContributionGraphCalendar>
+          <ContributionGraphFooter>
+            {/* <ContributionGraphTotalCount /> */}
+            <div className="text-muted-foreground">
+              {contributions.totalCount} total contributions last year
+            </div>
+            <ContributionGraphLegend />
+          </ContributionGraphFooter>
+        </ContributionGraph>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 {
-  "projectName": "start-app",
+  "projectName": "aldotestino",
   "mode": "file-router",
   "typescript": true,
-  "packageManager": "pnpm",
+  "packageManager": "bun",
   "includeExamples": false,
   "tailwind": true,
   "addOnOptions": {},
@@ -12,5 +12,5 @@
   "routerOnly": false,
   "version": 1,
   "framework": "react",
-  "chosenAddOns": ["eslint"]
+  "chosenAddOns": []
 }

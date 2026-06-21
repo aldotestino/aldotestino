@@ -111,21 +111,23 @@ export const getPinnedRepos = createServerFn().handler(async () => {
     return Result.ok(githubPinnedRepos.data);
   });
 
-  if (Result.isError(result)) {
-    console.warn("Error fetching pinned repositories:", result.error.message);
-    return [];
-  }
-
-  return result.value.data.user.pinnedItems.nodes.map((node) => ({
-    id: node.id,
-    name: node.name,
-    description: node.description,
-    url: node.url,
-    stars: node.stargazerCount,
-    forks: node.forkCount,
-    primaryLanguage: node.primaryLanguage?.name,
-    topics: node.repositoryTopics.nodes.map((n) => n.topic.name),
-  }));
+  return Result.match(result, {
+    ok: ({ data }) =>
+      data.user.pinnedItems.nodes.map((node) => ({
+        id: node.id,
+        name: node.name,
+        description: node.description,
+        url: node.url,
+        stars: node.stargazerCount,
+        forks: node.forkCount,
+        primaryLanguage: node.primaryLanguage?.name,
+        topics: node.repositoryTopics.nodes.map((n) => n.topic.name),
+      })),
+    err: (error) => {
+      console.warn("Error fetching pinned repositories:", error.message);
+      return [];
+    },
+  });
 });
 
 export type PinnedRepo = Awaited<ReturnType<typeof getPinnedRepos>>[number];

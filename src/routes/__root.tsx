@@ -4,6 +4,8 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
+import { TooltipProvider } from "../components/ui/tooltip";
+
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -44,7 +46,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ThemeProvider defaultTheme="system" storageKey="theme">
-          {children}
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
         <TanStackDevtools
           config={{
