@@ -7,7 +7,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-} from "@/components/reui/timeline"
+} from "@/components/reui/timeline";
 
 export function Pattern() {
   return (
@@ -48,5 +48,5 @@ export function Pattern() {
         </TimelineContent>
       </TimelineItem>
     </Timeline>
-  )
+  );
 }

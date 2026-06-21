@@ -1,34 +1,34 @@
-import { createContext, useCallback, useContext, useState } from "react"
-import { mergeProps } from "@base-ui/react/merge-props"
-import { useRender } from "@base-ui/react/use-render"
+import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
+import { createContext, useCallback, useContext, useState } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 // Types
-type TimelineContextValue = {
-  activeStep: number
-  setActiveStep: (step: number) => void
+interface TimelineContextValue {
+  activeStep: number;
+  setActiveStep: (step: number) => void;
 }
 
 // Context
 const TimelineContext = createContext<TimelineContextValue | undefined>(
   undefined
-)
+);
 
 const useTimeline = () => {
-  const context = useContext(TimelineContext)
+  const context = useContext(TimelineContext);
   if (!context) {
-    throw new Error("useTimeline must be used within a Timeline")
+    throw new Error("useTimeline must be used within a Timeline");
   }
-  return context
-}
+  return context;
+};
 
 // Components
 interface TimelineProps extends useRender.ComponentProps<"div"> {
-  defaultValue?: number
-  value?: number
-  onValueChange?: (value: number) => void
-  orientation?: "horizontal" | "vertical"
+  defaultValue?: number;
+  value?: number;
+  onValueChange?: (value: number) => void;
+  orientation?: "horizontal" | "vertical";
 }
 
 function Timeline({
@@ -41,19 +41,19 @@ function Timeline({
   children,
   ...props
 }: TimelineProps) {
-  const [activeStep, setInternalStep] = useState(defaultValue)
+  const [activeStep, setInternalStep] = useState(defaultValue);
 
   const setActiveStep = useCallback(
     (step: number) => {
       if (value === undefined) {
-        setInternalStep(step)
+        setInternalStep(step);
       }
-      onValueChange?.(step)
+      onValueChange?.(step);
     },
     [value, onValueChange]
-  )
+  );
 
-  const currentStep = value ?? activeStep
+  const currentStep = value ?? activeStep;
 
   const defaultProps = {
     className: cn(
@@ -63,7 +63,7 @@ function Timeline({
     "data-orientation": orientation,
     "data-slot": "timeline",
     children,
-  }
+  };
 
   return (
     <TimelineContext.Provider
@@ -75,7 +75,7 @@ function Timeline({
         props: mergeProps<"div">(defaultProps, props),
       })}
     </TimelineContext.Provider>
-  )
+  );
 }
 
 // TimelineContent
@@ -89,17 +89,17 @@ function TimelineContent({
     className: cn("text-muted-foreground text-sm", className),
     "data-slot": "timeline-content",
     children,
-  }
+  };
 
   return useRender({
     defaultTagName: "div",
     render,
     props: mergeProps<"div">(defaultProps, props),
-  })
+  });
 }
 
 // TimelineDate
-type TimelineDateProps = useRender.ComponentProps<"time">
+type TimelineDateProps = useRender.ComponentProps<"time">;
 
 function TimelineDate({
   className,
@@ -114,13 +114,13 @@ function TimelineDate({
     ),
     "data-slot": "timeline-date",
     children,
-  }
+  };
 
   return useRender({
     defaultTagName: "time",
     render,
     props: mergeProps<"time">(defaultProps, props),
-  })
+  });
 }
 
 // TimelineHeader
@@ -134,17 +134,17 @@ function TimelineHeader({
     className: cn(className),
     "data-slot": "timeline-header",
     children,
-  }
+  };
 
   return useRender({
     defaultTagName: "div",
     render,
     props: mergeProps<"div">(defaultProps, props),
-  })
+  });
 }
 
 // TimelineIndicator
-type TimelineIndicatorProps = useRender.ComponentProps<"div">
+type TimelineIndicatorProps = useRender.ComponentProps<"div">;
 
 function TimelineIndicator({
   className,
@@ -160,18 +160,18 @@ function TimelineIndicator({
     ),
     "data-slot": "timeline-indicator",
     children,
-  }
+  };
 
   return useRender({
     defaultTagName: "div",
     render,
     props: mergeProps<"div">(defaultProps, props),
-  })
+  });
 }
 
 // TimelineItem
 interface TimelineItemProps extends useRender.ComponentProps<"div"> {
-  step: number
+  step: number;
 }
 
 function TimelineItem({
@@ -181,7 +181,7 @@ function TimelineItem({
   children,
   ...props
 }: TimelineItemProps) {
-  const { activeStep } = useTimeline()
+  const { activeStep } = useTimeline();
 
   const defaultProps = {
     className: cn(
@@ -191,13 +191,13 @@ function TimelineItem({
     "data-completed": step <= activeStep || undefined,
     "data-slot": "timeline-item",
     children,
-  }
+  };
 
   return useRender({
     defaultTagName: "div",
     render,
     props: mergeProps<"div">(defaultProps, props),
-  })
+  });
 }
 
 // TimelineSeparator
@@ -215,13 +215,13 @@ function TimelineSeparator({
     ),
     "data-slot": "timeline-separator",
     children,
-  }
+  };
 
   return useRender({
     defaultTagName: "div",
     render,
     props: mergeProps<"div">(defaultProps, props),
-  })
+  });
 }
 
 // TimelineTitle
@@ -235,13 +235,13 @@ function TimelineTitle({
     className: cn("font-medium text-sm", className),
     "data-slot": "timeline-title",
     children,
-  }
+  };
 
   return useRender({
     defaultTagName: "h3",
     render,
     props: mergeProps<"h3">(defaultProps, props),
-  })
+  });
 }
 
 export {
@@ -253,4 +253,4 @@ export {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-}
+};
