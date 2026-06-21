@@ -21,4 +21,7 @@
       "secret_name": "GITHUB_TOKEN",
     },
   ],
+  "vars": {
+    "GITHUB_LOGIN": "aldotestino",
+  },
 }

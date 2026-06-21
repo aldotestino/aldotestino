@@ -81,11 +81,12 @@ export const getPinnedRepos = createServerFn().handler(async () => {
           method: "POST",
           headers: {
             Authorization: `Bearer ${GITHUB_TOKEN}`,
+            "User-Agent": "aldotestino-website",
           },
           body: JSON.stringify({
             query: graphQlQuery,
             variables: {
-              login: "aldotestino",
+              login: env.GITHUB_LOGIN,
             },
           }),
         }),
