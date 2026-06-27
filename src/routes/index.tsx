@@ -42,6 +42,10 @@ import { getContributions } from "../functions/contributions";
 import { getPinnedRepos } from "../functions/pinned-repos";
 import { experiences } from "../lib/data";
 
+/**
+ *
+ * @see https://tanstack.com/start/latest/docs/framework/react/guide/isr
+ */
 export const Route = createFileRoute("/")({
   loader: async () => {
     const pinnedRepos = await getPinnedRepos();
@@ -52,6 +56,10 @@ export const Route = createFileRoute("/")({
       contributions,
     };
   },
+  headers: () => ({
+    "Cache-Control":
+      "public, max-age=86400, s-maxage=86400, stale-while-revalidate=172800",
+  }),
   component: App,
 });
 
